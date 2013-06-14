@@ -1,0 +1,57 @@
+<html ng-app="myApp" >
+<head></head>
+<body>
+  <div ng-controller="WizardController">
+
+    <wizard on-before-step-change="log(event)" on-step-changing="log(event)" on-after-step-change="log(event)">
+
+      <step title="Name">
+        Name: <input type="text" ng-model="user.name"/>
+      </step>
+
+      <step title="Email">
+        Name: {{user.name}}
+        <br>
+        Email: <input type="text" ng-model="user.email"/>
+      </step>
+
+      <step title="Address">
+        Name: {{user.name}}
+        <br>
+        Email: {{user.email}}
+        <br>
+        Address: <input type="text" ng-model="user.address"/>
+      </step>
+
+      <step title="Color">
+        Name: {{user.name}}
+        <br>
+        Email: {{user.email}}
+        <br>
+        Address: {{user.address}}
+        <br>
+        Favorite Color: <select ng-model="user.color">
+          <option>Red</option>
+          <option>Green</option>
+          <option>Orange</option>
+          <option>Other</option>
+        </select>
+      </step>
+
+      <step title="Summary">
+        Name: {{user.name}}
+        <br>
+        Email: {{user.email}}
+        <br>
+        Address: {{user.address}}
+        <br>
+        Favorite Color: {{user.color}}
+      </step>
+    </wizard>
+
+  </div>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
