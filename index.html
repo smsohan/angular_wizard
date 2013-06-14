@@ -1,36 +1,71 @@
+<!DOCTYPE html>
 <html ng-app="myApp" >
-<head></head>
+
+<head>
+  <title>AngularJS Wizard Demo</title>
+  <style>
+    .wizard{
+      text-align: center;
+      line-height: 1.7em;
+    }
+    .wizard .buttons{
+      margin: 10px;
+    }
+
+    .wizard .buttons a:hover{
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
+</head>
+
 <body>
   <div ng-controller="WizardController">
 
+    <script id="wizard.html" type="text/ng-template">
+      <div class="wizard">
+
+        <h1> AngularJS Wizard Demo </h1>
+
+
+        <div ng-transclude></div>
+
+        <div class="buttons">
+          <a ng-click="showPreviousStep()" ng-show="hasPrevious()">Previous</a>
+          <a ng-click="showNextStep()" ng-show="hasNext()">Next</a>
+        </div>
+
+      </div>
+    </script>
+
     <wizard on-before-step-change="log(event)" on-step-changing="log(event)" on-after-step-change="log(event)">
 
-      <step title="Name">
-        Name: <input type="text" ng-model="user.name"/>
+      <step title="Step 1: Name">
+        <strong>Name:</strong> <input type="text" ng-model="user.name"/>
       </step>
 
-      <step title="Email">
-        Name: {{user.name}}
+      <step title="Step 2: Email">
+        <strong>Name:</strong> {{user.name}}
         <br>
-        Email: <input type="text" ng-model="user.email"/>
+        <strong>Email:</strong> <input type="text" ng-model="user.email"/>
       </step>
 
-      <step title="Address">
-        Name: {{user.name}}
+      <step title="Step 3: Address">
+        <strong>Name:</strong> {{user.name}}
         <br>
-        Email: {{user.email}}
+        <strong>Email:</strong> {{user.email}}
         <br>
         Address: <input type="text" ng-model="user.address"/>
       </step>
 
-      <step title="Color">
-        Name: {{user.name}}
+      <step title="Step 4: Color">
+        <strong>Name:</strong> {{user.name}}
         <br>
-        Email: {{user.email}}
+        <strong>Email:</strong> {{user.email}}
         <br>
-        Address: {{user.address}}
+        <strong>Address:</strong> {{user.address}}
         <br>
-        Favorite Color: <select ng-model="user.color">
+        <strong>Favorite Color:</strong> <select ng-model="user.color">
           <option>Red</option>
           <option>Green</option>
           <option>Orange</option>
@@ -39,14 +74,15 @@
       </step>
 
       <step title="Summary">
-        Name: {{user.name}}
+        <strong>Name:</strong> {{user.name}}
         <br>
-        Email: {{user.email}}
+        <strong>Email:</strong> {{user.email}}
         <br>
-        Address: {{user.address}}
+        <strong>Address:</strong> {{user.address}}
         <br>
-        Favorite Color: {{user.color}}
+        <strong>Favorite Color:</strong> {{user.color}}
       </step>
+
     </wizard>
 
   </div>

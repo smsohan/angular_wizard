@@ -22,10 +22,7 @@ myApp.directive('wizard', function(){
       onAfterStepChange: '&',
     },
 
-    template: '<div> <div ng-transclude></div> ' +
-      '&nbsp; <a ng-click="showPreviousStep()" ng-show="hasPrevious()">Previous</a>' +
-      '&nbsp; <a ng-click="showNextStep()" ng-show="hasNext()">Next</a>' +
-    '</div>',
+    templateUrl: 'wizard.html',
 
     replace: true,
 
@@ -90,7 +87,7 @@ myApp.directive('step', function(){
     scope: {
       title: '@'
     },
-    template: '<div ng-show="currentStep"><h1>{{title}}</h1> <div ng-transclude></div> </div>',
+    template: '<div class="step" ng-show="currentStep"><h2>{{title}}</h2> <div ng-transclude></div> </div>',
     replace: true,
 
     link: function(scope, element, attrs, wizardController){
