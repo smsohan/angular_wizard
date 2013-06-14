@@ -26,12 +26,12 @@ myApp.directive('wizard', function(){
 
     replace: true,
 
-    link: function(scope, element, attrs){
+    link: function(scope){
       scope.currentStepIndex = 0;
       scope.steps[scope.currentStepIndex].currentStep = true;
     },
 
-    controller: function($scope, $filter){
+    controller: function($scope){
       $scope.steps = [];
 
       this.registerStep = function(step){
